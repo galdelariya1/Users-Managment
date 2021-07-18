@@ -169,8 +169,8 @@ class MainComp extends Component{
     if(this.state.addNewUser){
       newUserScreen = <div className = "square">
                 <h3>Add New User </h3>
-                Name : <input type = "text" value = {this.state.nameToAdd} onChange = {e => this.setState({nameToAdd : e.target.value})}/> <br/>
-                Email : <input type = "text" value = {this.state.emailToAdd} onChange = {e => this.setState({emailToAdd : e.target.value})}/> <br/><br/>
+                Name : <input type = "text" className = "inputhBar" value = {this.state.nameToAdd} onChange = {e => this.setState({nameToAdd : e.target.value})}/> <br/>
+                Email : <input type = "text" className = "inputhBar" value = {this.state.emailToAdd} onChange = {e => this.setState({emailToAdd : e.target.value})}/> <br/><br/>
 
                 <input type = "button" value = "Add" onClick = {this.addUser}/> <br/>
                 <input type = "button" value = "Clear" onClick= {this.clearNewUser} />
@@ -182,8 +182,9 @@ class MainComp extends Component{
     return(
         <div>
 
-          Search <input type = "text" onChange = {this.search} />
           <input type = "button" value = "Add New User" onClick= {this.openAddNewUser}/> <br/> <br/>
+
+          <input type = "text" className = "inputhBar" placeholder="Search for a User" onChange = {this.search} />
 
           {newUserScreen}
 

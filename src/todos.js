@@ -34,7 +34,7 @@ class TodoComp extends Component{
 
           <div className = "square">
 
-          Title : <input type = "text" onChange = {e => this.setState({titleToAdd : e.target.value})} /> <br/> <br/>
+          <input type = "text" className = "inputhBar" placeholder="Title" onChange = {e => this.setState({titleToAdd : e.target.value})} /> <br/> <br/>
 
           <input type = "button" value = "Cancel" onClick = {() => this.setState({toAdd : false})} />
           <input type = "button" value = "Add" onClick = {this.addNewToDo} />

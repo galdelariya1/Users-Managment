@@ -104,9 +104,9 @@ class UserComp extends Component{
     if(this.state.isAddress){
       
       address = <div className = "square address">
-          Street: <input type = "text" value = {this.state.street} onChange = {e => this.setState({street : e.target.value})}/> <br/>
-          City: <input type = "text" value = {this.state.city} onChange = {e => this.setState({city : e.target.value})} />  <br/>
-          Zip Code: <input type = "text" value = {this.state.zipcode} onChange = {e => this.setState({zipcode : e.target.value})}/>  <br/>
+          Street: <input type = "text" className = "inputhBar" value = {this.state.street} onChange = {e => this.setState({street : e.target.value})}/> <br/>
+          City: <input type = "text"  className = "inputhBar" value = {this.state.city} onChange = {e => this.setState({city : e.target.value})} />  <br/>
+          Zip Code: <input type = "text" className = "inputhBar" value = {this.state.zipcode} onChange = {e => this.setState({zipcode : e.target.value})}/>  <br/>
       </div>
     }
 
@@ -120,7 +120,8 @@ class UserComp extends Component{
     else {
       classNameToPresent = this.props.className + " open"
       userTasks = <TodoComp tasks = {this.state.tasks} id = {this.state.id} 
-                  callbackNewToDo = {data => this.addNewTask(data)} callbackMarkCompleted = {data => this.markCompleted(data)}/>
+                  callbackNewToDo = {data => this.addNewTask(data)} 
+                  callbackMarkCompleted = {data => this.markCompleted(data)}/>
       userPosts = <PostsComp posts = {this.state.posts} id = {this.state.id}
                   callbackNewPost = {data => this.addNewPost(data)} />
     }
@@ -131,8 +132,8 @@ class UserComp extends Component{
               <div className = "id" onClick = {this.colorAndPresentTasks}>
                 ID : {this.state.id}
               </div>
-              Name : <input type= "text" value = {this.state.name} onChange = {e => this.setState({name : e.target.value})}/> <br/>
-              Email : <input type= "text" value = {this.state.email} onChange = {e => this.setState({email : e.target.value})}/> <br/><br/>
+              Name : <input type= "text" className = "inputhBar" value = {this.state.name} onChange = {e => this.setState({name : e.target.value})}/> <br/>
+              Email : <input type= "text" className = "inputhBar" value = {this.state.email} onChange = {e => this.setState({email : e.target.value})}/> <br/><br/>
 
               <input type = "button" onMouseOver={this.presentMoreData} value = "Other Data"/>
 

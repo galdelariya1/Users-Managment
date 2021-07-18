@@ -28,8 +28,8 @@ class PostsComp extends Component {
 
         <div className="square">
 
-          Title : <input type="text" onChange={e => this.setState({ titleToAdd: e.target.value })} /> <br />
-          Body : <input type="text" onChange={e => this.setState({ bodyToAdd: e.target.value })} /> <br /> <br />
+          <input type="text" className = "inputhBar" placeholder="Title" onChange={e => this.setState({ titleToAdd: e.target.value })} /> <br />
+          <input type="text" className = "inputhBar" placeholder="Body" onChange={e => this.setState({ bodyToAdd: e.target.value })} /> <br /> <br />
 
           <input type="button" value="Cancel" onClick={() => this.setState({ toAdd: false })} />
           <input type="button" value="Add" onClick={this.addNewPost} />
