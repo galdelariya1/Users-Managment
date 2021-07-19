@@ -147,7 +147,7 @@ class MainComp extends Component{
           let userTasks = this.state.tasks.filter(x => x.userId === item.id)
           let userPosts = this.state.posts.filter(x => x.userId === item.id)
 
-          let classType = "square " + (item.allCompleted ? "green" : "red");
+          let classType = "user " + (item.allCompleted ? "green" : "red");
 
           return <UserComp className = {classType} item = {item}
           tasks = {userTasks}
@@ -168,11 +168,11 @@ class MainComp extends Component{
 
     if(this.state.addNewUser){
       newUserScreen = <div className = "square">
-                <h3>Add New User </h3>
-                Name : <input type = "text" className = "inputhBar" value = {this.state.nameToAdd} onChange = {e => this.setState({nameToAdd : e.target.value})}/> <br/>
-                Email : <input type = "text" className = "inputhBar" value = {this.state.emailToAdd} onChange = {e => this.setState({emailToAdd : e.target.value})}/> <br/><br/>
+                <h3> Add New User </h3>
+                Name : <input type = "text" className = "inputhBar" value = {this.state.nameToAdd} onChange = {e => this.setState({nameToAdd : e.target.value})}/>
+                Email : <input type = "text" className = "inputhBar" value = {this.state.emailToAdd} onChange = {e => this.setState({emailToAdd : e.target.value})}/> 
 
-                <input type = "button" value = "Add" onClick = {this.addUser}/> <br/>
+                <input type = "button" value = "Add" onClick = {this.addUser}/>
                 <input type = "button" value = "Clear" onClick= {this.clearNewUser} />
                 <input type = "button" value = "Cancel" onClick= {this.cancelNewUser} />
                 
@@ -182,9 +182,10 @@ class MainComp extends Component{
     return(
         <div>
 
-          <input type = "button" value = "Add New User" onClick= {this.openAddNewUser}/> <br/> <br/>
-
-          <input type = "text" className = "inputhBar" placeholder="Search for a User" onChange = {this.search} />
+          <div className = "action-bar">
+            <input type = "button" value = "Add New User" onClick= {this.openAddNewUser}/> 
+            <input type = "text" className = "inputhBar" placeholder="Search for a User" onChange = {this.search} />
+          </div>
 
           {newUserScreen}
 

@@ -6,7 +6,7 @@ class PostsComp extends Component {
   constructor() {
     super();
 
-    this.state = { toHide : false, toAdd: false, titleToAdd: "", bodyToAdd: "" }
+    this.state = { toHide : true, toAdd: false, titleToAdd: "", bodyToAdd: "" }
   }
 
 
