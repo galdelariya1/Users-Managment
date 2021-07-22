@@ -101,7 +101,7 @@ class UserComp extends Component {
 
     if (this.state.isAddress) {
 
-      address = <div className="square address">
+      address = <div className="item address">
         Street: <input type="text" className="inputhBar" value={this.state.street} onChange={e => this.setState({ street: e.target.value })} />
         City: <input type="text" className="inputhBar" value={this.state.city} onChange={e => this.setState({ city: e.target.value })} />
         Zip Code: <input type="text" className="inputhBar" value={this.state.zipcode} onChange={e => this.setState({ zipcode: e.target.value })} />

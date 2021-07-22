@@ -26,10 +26,10 @@ class PostsComp extends Component {
       divToPresent = <div>
         <h4>New Post - User {this.props.id}</h4>
 
-        <div className="square">
+        <div className="item">
 
-          <input type="text" className = "inputhBar" placeholder="Title" onChange={e => this.setState({ titleToAdd: e.target.value })} /> <br />
-          <input type="text" className = "inputhBar" placeholder="Body" onChange={e => this.setState({ bodyToAdd: e.target.value })} /> <br /> <br />
+          <input type="text" className = "inputhBar" placeholder="Title" onChange={e => this.setState({ titleToAdd: e.target.value })} /> 
+          <input type="text" className = "inputhBar" placeholder="Body" onChange={e => this.setState({ bodyToAdd: e.target.value })} /> 
 
           <input type="button" value="Cancel" onClick={() => this.setState({ toAdd: false })} />
           <input type="button" value="Add" onClick={this.addNewPost} />
@@ -41,20 +41,24 @@ class PostsComp extends Component {
 
     else {
 
-      let allPosts;
+      let allPosts = this.props.posts.map((item, index) => {
+
+        return <div key={index} className="item">
+          Title : {item.title} <br/>
+          Body : {item.body} 
+        </div>
+      })
+
+      let divAllPosts;
 
       if (this.state.toHide) {
-        allPosts = null;
+        divAllPosts = null;
       }
 
       else{
-        allPosts = this.props.posts.map((item, index) => {
-
-          return <div key={index} className="square">
-            Title : {item.title} <br />
-            Body : {item.body} <br />
-          </div>
-        })
+        divAllPosts = <div className="all-items">
+          {allPosts}
+        </div>        
       }
 
       let buttonValue = this.state.toHide ? "Present" : "Hide";  
@@ -63,12 +67,9 @@ class PostsComp extends Component {
         <h3>Posts - User {this.props.id}</h3>
         <input type="button" value="Add" onClick={() => this.setState({ toAdd: true })} />
         <input type="button" value={buttonValue} 
-        onClick={() => this.setState({ toHide: !this.state.toHide })} /> <br /><br />
-        <div>
-
-          {allPosts}
-
-        </div>
+        onClick={() => this.setState({ toHide: !this.state.toHide })} /> <br/>
+        
+        {divAllPosts}
 
       </div>
 
